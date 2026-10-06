@@ -8,28 +8,46 @@ package taller
 class Rectangulo(b: Int, h: Int) {
 
   // Selectoras: la base y la altura con que se construyó el rectángulo.
-  def base: Int = 0 // Completar
+  def base: Int = b// Completar
 
-  def altura: Int = 0 // Completar
+  def altura: Int = h// Completar
 
-  def area: Int = 0 // Completar
+  def area: Int = {
+    val area = b*h
+    area
+  } // Completar
 
-  def perimetro: Int = 0 // Completar
+  def perimetro: Int = {
+    val perimetro = (2*b)+(2*h)
+    perimetro
+  } // Completar
 
-  def esCuadrado: Boolean = false // Completar
+  def esCuadrado: Boolean = {
+    if(b==h)true else false
+  }    // Completar
 
   // El rectángulo con base y altura intercambiadas.
-  def rotar: Rectangulo = new Rectangulo(0, 0) // Completar
+  def rotar: Rectangulo = {
+    new Rectangulo(this.h,this.b)
+  } // Completar
 
   // El rectángulo con los dos lados multiplicados por k.
-  def escalar(k: Int): Rectangulo = new Rectangulo(0, 0) // Completar
+  def escalar(k: Int): Rectangulo = {
+    new Rectangulo(this.base*k, this.altura*k)
+  } // Completar
 
   // Si este rectángulo entra dentro de otro, tal cual o rotado.
-  def cabeEn(otro: Rectangulo): Boolean = false // Completar
+  def cabeEn(otro: Rectangulo): Boolean = {
+    if(otro.base >= this.base && otro.altura >= this.altura ||
+      otro.base >= this.altura && otro.altura >= this.base)true else false
+  }// Completar
 
   // El de mayor área entre este y otro; con áreas iguales, este.
-  def elMayor(otro: Rectangulo): Rectangulo = new Rectangulo(0, 0) // Completar
+  def elMayor(otro: Rectangulo): Rectangulo = {
+    if(otro.area>this.area) new Rectangulo(otro.base,otro.altura) else new Rectangulo(b, h)
+
+  } // Completar
 
   // La forma "3x4": base, la letra x y altura.
-  override def toString: String = "" // Completar
+  override def toString: String = b+"x"+h // Completar
 }
